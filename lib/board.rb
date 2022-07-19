@@ -1,5 +1,5 @@
 require './lib/knight.rb'
-require './lib/graph.rb'
+require './lib/tree.rb'
 
 class Board
 
@@ -28,7 +28,7 @@ def knight_moves (piece, start, finish)
   # all the possible moves for one player turn (x,y grid)
   possible_moves_array = [[-2, 1], [-1, 2], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1]]
 
-  moves_graph = Graph.new(start)
+  moves_tree = Tree.new(start)
 
   possible_moves_array.each do |coord|
     start_x = start[0]
@@ -46,18 +46,18 @@ def knight_moves (piece, start, finish)
     # check if move is off the board: skip if the resulting coordinates are greater than the board size. Assuming board is square
     elsif (finish_x > @grid.length || finish_y > @grid.length)
       next
-    # of checks are passed, add this valid possible move to moves_graph
+    # of checks are passed, add this valid possible move to moves_tree
     else
       finish_array = [finish_x, finish_y]
 
-      moves_graph.root.add_edge(GraphNode.new(finish_array))
+      moves_tree.root.add_child(TreeNode.new(finish_array))
     end
 
 
 
   end
 
-  p moves_graph
+  p moves_tree
 
 
 

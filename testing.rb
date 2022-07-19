@@ -1,6 +1,6 @@
 require './lib/board.rb'
 require './lib/knight.rb'
-require './lib/graph.rb'
+require './lib/tree.rb'
 
 
 a_knight = Knight.new
