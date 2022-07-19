@@ -22,4 +22,9 @@ class Graph
     @root = GraphNode.new(start_array)
   end
 
+  # return all the leafs
+  def return_leafs
+
+  end
+
 end

@@ -28,7 +28,7 @@ def knight_moves (piece, start, finish)
   # all the possible moves for one player turn (x,y grid)
   possible_moves_array = [[-2, 1], [-1, 2], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1]]
 
-  moves_graph = Graph.new([0,0]) # replace this with starting location
+  moves_graph = Graph.new(start)
 
   possible_moves_array.each do |coord|
     start_x = start[0]
@@ -50,13 +50,14 @@ def knight_moves (piece, start, finish)
     else
       finish_array = [finish_x, finish_y]
 
-      p finish_array
+      moves_graph.root.add_edge(GraphNode.new(finish_array))
     end
 
 
 
-
   end
+
+  p moves_graph
 
 
 

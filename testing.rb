@@ -10,7 +10,7 @@ test_board.add_piece(a_knight, 0, 0)
 
 test_board.knight_moves(a_knight, [0,0], [1,2])
 
-p test_board
+
 
 # a_graph = Graph.new
 # p a_graph
