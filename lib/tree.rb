@@ -11,9 +11,13 @@ class TreeNode
     @children << node
   end
 
+  def children?
+    @children.length.positive?
+  end
+
 end
 
-# An open-ended tree. One node can have more than two children. 
+# An open-ended (non-binary) tree. One node can have more than two children 
 class Tree
 
   attr_accessor :root
@@ -22,7 +26,7 @@ class Tree
     @root = TreeNode.new(start_array)
   end
 
-  # return all the leafs
+  # return array of all the leafs (nodes with no children)
   def return_leafs
 
   end
