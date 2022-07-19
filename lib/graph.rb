@@ -18,8 +18,8 @@ class Graph
 
   attr_accessor :root
   
-  def initialize
-    @root = GraphNode.new("root")
+  def initialize(start_array)
+    @root = GraphNode.new(start_array)
   end
 
 end

@@ -3,12 +3,14 @@ require './lib/knight.rb'
 require './lib/graph.rb'
 
 
-# a_knight = Knight.new
-# test_board = Board.new
+a_knight = Knight.new
+test_board = Board.new
 
-# test_board.add_piece(a_knight)
+test_board.add_piece(a_knight, 0, 0)
 
-# p test_board
+test_board.knight_moves(a_knight, [0,0], [1,2])
 
-a_graph = Graph.new
-p a_graph
+p test_board
+
+# a_graph = Graph.new
+# p a_graph
