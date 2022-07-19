@@ -21,6 +21,8 @@ class TreeNode
 
 end
 
+require "tree_support"
+
 # An open-ended (non-binary) tree. One node can have more than two children 
 class Tree
 
@@ -50,6 +52,10 @@ class Tree
     end
 
     leafs_array
+  end
+
+  def print
+    puts TreeSupport.tree(@root)
   end
 
 end
