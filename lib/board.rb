@@ -25,10 +25,22 @@ end
 
 def knight_moves (piece, start, finish)
 
+
+
+
+
+
+end
+
+# possible moves
+def possible_knight_moves (piece, start, finish)
   # all the possible moves for one player turn (x,y grid)
   possible_moves_array = [[-2, 1], [-1, 2], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1]]
 
   moves_tree = Tree.new(start)
+
+
+  
 
   possible_moves_array.each do |coord|
     start_x = start[0]
@@ -58,10 +70,6 @@ def knight_moves (piece, start, finish)
   end
 
   p moves_tree
-
-
-
-
 end
 
 end
