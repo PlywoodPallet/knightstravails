@@ -10,12 +10,16 @@ require './lib/tree.rb'
 
 # test_board.knight_moves(a_knight, [0,0], [1,2])
 
-a_treenode = TreeNode.new
-puts a_treenode.children?
+# a_treenode = TreeNode.new("test")
+# puts a_treenode
 
-a_treenode.add_child(TreeNode.new)
-puts a_treenode.children?
+a_tree = Tree.new("root")
+a_tree.root.add_child(TreeNode.new("child1"))
+a_tree.root.add_child(TreeNode.new("child2"))
+a_tree.root.add_child(TreeNode.new("child3"))
+a_tree.root.add_child(TreeNode.new("child4"))
 
+puts a_tree.return_leafs
 
 # a_graph = Graph.new
 # p a_graph

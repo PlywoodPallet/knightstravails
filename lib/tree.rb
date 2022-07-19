@@ -11,8 +11,12 @@ class TreeNode
     @children << node
   end
 
-  def children?
+  def haschildren?
     @children.length.positive?
+  end
+
+  def to_s
+    "[#{@value}, children: #{@children}]"
   end
 
 end
@@ -22,13 +26,30 @@ class Tree
 
   attr_accessor :root
   
-  def initialize(start_array)
-    @root = TreeNode.new(start_array)
+  def initialize(start_location = nil)
+    @root = TreeNode.new(start_location)
   end
 
-  # return array of all the leafs (nodes with no children)
+  # return array of all leaf nodes (nodes with no children)
   def return_leafs
 
+    leafs_array = []
+    node_queue = []
+    node_queue << @root # initial node to examine
+
+    until node_queue.length.zero?
+      node = node_queue.shift
+
+      # if the node has children, add its children into the queue
+      if node.haschildren?
+        node_queue.concat(node.children)
+      # if no children, add to the output array
+      else
+        leafs_array.push(node)
+      end
+    end
+
+    leafs_array
   end
 
 end
