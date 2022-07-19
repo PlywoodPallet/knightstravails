@@ -1,22 +1,38 @@
 class TreeNode
 
-  attr_accessor :value, :children
+  # attr_accessor :value, :children
 
-  def initialize (value = nil)
-    @value = value
+  # def initialize (value = nil)
+  #   @value = value
+  #   @children = []
+  # end
+
+  # def add_child(node)
+  #   @children << node
+  # end
+
+  # def haschildren?
+  #   @children.length.positive?
+  # end
+
+  # def to_s
+  #   "[#{@value}, children: #{@children}]"
+  # end
+
+    attr_accessor :name, :parent, :children
+
+  def initialize(name = nil, &block)
+    @name = name
     @children = []
+    if block_given?
+      instance_eval(&block)
+    end
   end
 
-  def add_child(node)
-    @children << node
-  end
-
-  def haschildren?
-    @children.length.positive?
-  end
-
-  def to_s
-    "[#{@value}, children: #{@children}]"
+  def add(*args, &block)
+    tap do
+      children << self.class.new(*args, &block).tap { |v| v.parent = self }
+    end
   end
 
 end
